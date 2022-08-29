@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d5d300ef70d4e4da94d5bef19bb744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nose: {fileID: 0}
+  Nose: {fileID: 1974705693}
   jump: 7
   tempo: 0.5
 --- !u!61 &1974705698
@@ -1024,7 +1024,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.253, y: 0.094}
+  m_ConnectedAnchor: {x: -0.39, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &2140731909
