@@ -939,7 +939,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 4
   m_LinearDrag: 0
   m_AngularDrag: 0.01
   m_GravityScale: 2
@@ -961,8 +961,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Flappy: {fileID: 1974705693}
-  jump: 7
-  tempo: 0.5
+  jump: 4
+  tempo: 0.2
 --- !u!61 &1974705698
 BoxCollider2D:
   m_ObjectHideFlags: 0
