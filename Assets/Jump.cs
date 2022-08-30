@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    public GameObject Nose;
+    public GameObject Flappy;
     private Rigidbody2D rigidbody2d;
     public float jump;
     public float tempo;
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2d = Nose.GetComponent<Rigidbody2D>();
+        rigidbody2d = Flappy.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
