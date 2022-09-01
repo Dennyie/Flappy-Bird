@@ -963,6 +963,7 @@ MonoBehaviour:
   Flappy: {fileID: 1974705693}
   jump: 4
   time: 0.1
+  timeup: 0.1
   timeRoutate: 1
   flappydown: {fileID: 2018622879}
   timecount: 2
