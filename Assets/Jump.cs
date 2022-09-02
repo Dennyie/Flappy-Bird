@@ -9,7 +9,6 @@ public class Jump : MonoBehaviour
     public float jump;
     public float time;
     public float timeup;
-    public float timeRoutate;
     public Transform flappydown;
     public float timecount;
     // Start is called before the first frame update
@@ -21,17 +20,17 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("velocity " + rigidbody2d.velocity.y);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jumpflappy();
-           // Scaleflappy();
+            Scaleflappy();
             StartCoroutine(JumptimeRoutine());
-            StartCoroutine(UpdownRoutine());
         }
-     /*   if (rigidbody2d.velocity.y < 0)
+        if (rigidbody2d.velocity.y < -7)
         {
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, flappydown.rotation, timecount * Time.deltaTime);
-        } */
+        } 
     }
     // Private para que ele fique somente nesse objeto
     // IEnumerator para criar uma coroutine 
@@ -54,16 +53,8 @@ public class Jump : MonoBehaviour
     private void Scaleflappy()
     {
         this.transform.rotation = Quaternion.Euler(0, 0, 30);
+    } 
+
+   
     }
 
-    private IEnumerator UpdownRoutine()
-    {
-        this.transform.rotation = Quaternion.Euler(0, 0, 30);
-        yield return new WaitForSeconds(timeup);
-        Debug.Log("velocity " + rigidbody2d.velocity.y);
-        if (rigidbody2d.velocity.y < 0)
-        {
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, flappydown.rotation, timecount * Time.deltaTime);
-        }
-    }
-}
