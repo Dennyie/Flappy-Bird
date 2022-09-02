@@ -4,27 +4,42 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    public GameObject Flappy;
+    // SerializeField para conseguir editar os valores dessas váriaveis no Inspector
+    [SerializeField]
+    private GameObject Flappy;
+    [SerializeField]
+    private float jump;
+    [SerializeField]
+    private float time;
+    [SerializeField]
+    private float timeup;
+    [SerializeField]
+    private Transform flappydown;
+    [SerializeField]
+    private float timecount;
+
     private Rigidbody2D rigidbody2d;
-    public float jump;
-    public float time;
-    public float timeup;
-    public Transform flappydown;
-    public float timecount;
-    // Start is called before the first frame update
-    void Start()
+
+    // OnValidate para usar o GetComponent
+#if UNITY_EDITOR
+
+void OnValidate()
     {
         rigidbody2d = Flappy.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+#endif
+
+    // Update é chamado 1 vez por frame 
     void Update()
     {
-        Debug.Log("velocity " + rigidbody2d.velocity.y);
+        // Debug log para ver a velocidade que o flappy está caindo
+      //   Debug.Log("velocity " + rigidbody2d.velocity.y);
+       // Se apertar espaço ele executa as funções abaixo
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jumpflappy();
-            Scaleflappy();
+            RotateFlappy();
             StartCoroutine(JumptimeRoutine());
         }
         if (rigidbody2d.velocity.y < -7)
@@ -45,12 +60,14 @@ public class Jump : MonoBehaviour
         // está fazendo o rigidbody voltar a ser Dynamic
     }
 
+    // faz o flappy pular
     private void Jumpflappy()
     {
         rigidbody2d.velocity = Vector2.up * jump;
     }
-
-    private void Scaleflappy()
+    
+    // configura a rotação do flappy para 30 
+    private void RotateFlappy()
     {
         this.transform.rotation = Quaternion.Euler(0, 0, 30);
     } 

@@ -964,9 +964,8 @@ MonoBehaviour:
   jump: 4
   time: 0.1
   timeup: 0.1
-  timeRoutate: 1
   flappydown: {fileID: 2018622879}
-  timecount: 2
+  timecount: 7
 --- !u!61 &1974705698
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1022,7 +1021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2018622879}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: RotationObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1035,13 +1034,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018622878}
-  m_LocalRotation: {x: -0, y: -0, z: -0.71085805, w: 0.7033355}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.61}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &2140731909
 GameObject:
   m_ObjectHideFlags: 0
