@@ -33,9 +33,9 @@ void OnValidate()
     // Update é chamado 1 vez por frame 
     void Update()
     {
-        // Debug log para ver a velocidade que o flappy está caindo
-      //   Debug.Log("velocity " + rigidbody2d.velocity.y);
-       // Se apertar espaço ele executa as funções abaixo
+        // Debug log para ver a velocidade que o flappy está caindo 
+        //  Debug.Log("velocity " + rigidbody2d.velocity.y);
+        // Se apertar espaço ele executa as funções abaixo
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jumpflappy();
