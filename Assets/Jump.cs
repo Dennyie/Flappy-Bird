@@ -5,21 +5,14 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     // SerializeField para conseguir editar os valores dessas váriaveis no Inspector
-    [SerializeField]
-    private GameObject Flappy;
-    [SerializeField]
-    private float jump;
-    [SerializeField]
-    private float time;
-    [SerializeField]
-    private float timeup;
-    [SerializeField]
-    private Transform flappydown;
-    [SerializeField]
-    private float timecount;
+    [SerializeField] private GameObject Flappy;
+    [SerializeField] private float jump;
+    [SerializeField] private float timeup;
+    [SerializeField] private Transform flappydown;
+    [SerializeField] private float timecount;
 
     private Rigidbody2D rigidbody2d;
-    private float maxRotation = 30f;
+    private float maxRotation = 25f;
     private float minRotation = -90f;
     private Transform localTrans;
 
@@ -46,7 +39,6 @@ public class Jump : MonoBehaviour
         {
             Jumpflappy();
             RotateFlappy();
-            StartCoroutine(JumptimeRoutine());
         }
         if (rigidbody2d.velocity.y < -7)
         {
@@ -54,19 +46,6 @@ public class Jump : MonoBehaviour
         }
         LimitRotation();
     }
-    // Private para que ele fique somente nesse objeto
-    // IEnumerator para criar uma coroutine 
-    private IEnumerator JumptimeRoutine()
-    {
-        rigidbody2d.bodyType = RigidbodyType2D.Kinematic;
-        // está fazendo o ridigbody ficar no estado Kinematic 
-        yield return new WaitForSeconds(time);
-        // yield return está retornando para função o valor de tempo
-        //  StartCoroutine(RotationRoutine());
-        rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
-        // está fazendo o rigidbody voltar a ser Dynamic
-    }
-
     // faz o flappy pular
     private void Jumpflappy()
     {
@@ -76,7 +55,7 @@ public class Jump : MonoBehaviour
     // configura a rotação do flappy para 30 
     private void RotateFlappy()
     {
-        this.transform.rotation = Quaternion.Euler(0, 0, 30);
+        this.transform.rotation = Quaternion.Euler(0, 0, 25);
     }
 
     private void LimitRotation()
