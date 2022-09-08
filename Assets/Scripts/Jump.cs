@@ -15,6 +15,7 @@ public class Jump : MonoBehaviour
     private float maxRotation = 25f;
     private float minRotation = -90f;
     private Transform localTrans;
+  
 
     // OnValidate para usar o GetComponent
 #if UNITY_EDITOR
@@ -28,6 +29,10 @@ public class Jump : MonoBehaviour
 
 #endif
 
+    private void Start()
+    {
+       
+    }
 
     // Update é chamado 1 vez por frame 
     void Update()
@@ -69,6 +74,16 @@ public class Jump : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Obstacle")
+        {
+            FindObjectOfType<GameManager>().GameOver();
+        } else if (other.gameObject.tag == "Score")
+        {
+            FindObjectOfType<GameManager>().IncreaseScore();
+        }
+    }
 
 
 }

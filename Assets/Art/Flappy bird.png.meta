@@ -599,7 +599,7 @@ TextureImporter:
         serializedVersion: 2
         x: 395
         y: 432
-        width: 49
+        width: 96
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -610,27 +610,6 @@ TextureImporter:
       bones: []
       spriteID: 47c0ff6aef4378340800000000000000
       internalID: 4865916190725180532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flappy bird_13
-      rect:
-        serializedVersion: 2
-        x: 449
-        y: 432
-        width: 42
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94913dcc174ad3480800000000000000
-      internalID: -8917790878449067703
       vertices: []
       indices: 
       edges: []
