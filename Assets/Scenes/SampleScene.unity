@@ -1471,7 +1471,7 @@ Rigidbody2D:
   m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.01
-  m_GravityScale: 1.8
+  m_GravityScale: 1.7
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 2
@@ -1490,7 +1490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Flappy: {fileID: 1974705693}
-  jump: 5
+  jump: 5.5
   timeup: 0.1
   flappydown: {fileID: 2018622879}
   timecount: 7
