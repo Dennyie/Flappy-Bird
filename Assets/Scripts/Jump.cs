@@ -42,6 +42,7 @@ public class Jump : MonoBehaviour
         // Se apertar espaço ele executa as funções abaixo
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            rigidbody2d.bodyType = RigidbodyType2D.Dynamic;
             Jumpflappy();
             RotateFlappy();
         }

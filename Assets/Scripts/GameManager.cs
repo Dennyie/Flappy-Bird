@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -13,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Jump player;
     private Transform gameObjectToMove;
     private Rigidbody2D sleep;
-    [SerializeField]   private GameObject Flappy;
+    [SerializeField] private GameObject Flappy;
 
 
 
@@ -52,15 +53,18 @@ public class GameManager : MonoBehaviour
             Destroy(pipes[i].gameObject);
         }
 
-        gameObjectToMove.transform.position = new Vector3(0, 0, 0);
+        Flappy.transform.position = new Vector3(0, 0, 0);
+        Flappy.transform.rotation = new Quaternion(0, 0, 0, 0);
+        sleep.bodyType = RigidbodyType2D.Kinematic;
         sleep.Sleep();
+        
     }
 
     public void Pause()
     {
         Time.timeScale = 0f;
         player.enabled = false;
-        
+
     }
 
 
@@ -77,4 +81,6 @@ public class GameManager : MonoBehaviour
         score++;
         ScoreText.text = score.ToString();
     }
+
+   
 }
