@@ -11,10 +11,10 @@ public class Jump : MonoBehaviour
     [SerializeField] private Transform flappydown;
     [SerializeField] private float timecount;
 
-    private Rigidbody2D rigidbody2d;
+    [SerializeField] private Rigidbody2D rigidbody2d;
     private float maxRotation = 25f;
     private float minRotation = -90f;
-    private Transform localTrans;
+    [SerializeField] private Transform localTrans;
   
 
     // OnValidate para usar o GetComponent

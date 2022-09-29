@@ -7,8 +7,8 @@ public class BackgroundRepeat : MonoBehaviour
     [SerializeField] private float width;
     [SerializeField] private float speed = -3f;
 
-    private BoxCollider2D boxCollider;
-    private Rigidbody2D rb;
+    [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()

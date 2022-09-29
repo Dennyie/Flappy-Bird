@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject scoreboard;
     public Jump player;
-    private Transform gameObjectToMove;
-    private Rigidbody2D sleep;
+    [SerializeField] private Transform gameObjectToMove;
+    [SerializeField] private Rigidbody2D sleep;
     [SerializeField] private GameObject Flappy;
 
 
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        PlayerPrefs.SetInt("highscore", 0);
+        //PlayerPrefs.SetInt("highscore", 0);
         gameOver.SetActive(false);
         scoreboard.SetActive(false);
         highscoreText.text = "" + PlayerPrefs.GetInt("highscore"); // O texto não aparecer 0
