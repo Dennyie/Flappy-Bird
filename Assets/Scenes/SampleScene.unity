@@ -158,6 +158,8 @@ MonoBehaviour:
   gameOver: {fileID: 934371842}
   scoreboard: {fileID: 626227968}
   player: {fileID: 1974705697}
+  gameObjectToMove: {fileID: 1974705695}
+  sleep: {fileID: 1974705696}
   Flappy: {fileID: 1974705693}
 --- !u!4 &73842290
 Transform:
@@ -236,8 +238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 7027677653652475000, guid: 80ef414b02cc0ec45bb1c1860e87975a, type: 3}
   spawnRate: 1.5
-  minHeight: -1.5
-  maxHeight: 1.5
+  minHeight: -1
+  maxHeight: 1
 --- !u!4 &218337309
 Transform:
   m_ObjectHideFlags: 0
@@ -1131,6 +1133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 6.95
   speed: -5
+  boxCollider: {fileID: 1650940133}
+  rb: {fileID: 1650940136}
 --- !u!1 &1769974415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 6.95
   speed: -5
+  boxCollider: {fileID: 1952582893}
+  rb: {fileID: 1952582895}
 --- !u!1 &1974705693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1610,8 @@ MonoBehaviour:
   timeup: 0.1
   flappydown: {fileID: 2018622879}
   timecount: 7
+  rigidbody2d: {fileID: 1974705696}
+  localTrans: {fileID: 1974705695}
 --- !u!61 &1974705698
 BoxCollider2D:
   m_ObjectHideFlags: 0
