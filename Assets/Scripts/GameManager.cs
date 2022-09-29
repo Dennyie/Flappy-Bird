@@ -8,6 +8,10 @@ using UnityEngine.UIElements;
 public class GameManager : MonoBehaviour
 {
     private int score;
+    private int highscore;
+    public GameObject scorego;
+    public Text scoreTextFinish;
+    public Text highscoreText;
     public Text ScoreText;
     public GameObject playButton;
     public GameObject gameOver;
@@ -32,8 +36,11 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        //PlayerPrefs.SetInt("highscore", 0);R
         gameOver.SetActive(false);
         scoreboard.SetActive(false);
+        highscoreText.text = "" + PlayerPrefs.GetInt("highscore"); // O texto não aparecer 0
+        highscore = PlayerPrefs.GetInt("highscore"); // declarando o highscore pra ela não começar como 0
     }
 
     private void Awake()
@@ -50,6 +57,7 @@ public class GameManager : MonoBehaviour
         playButton.SetActive(false);
         gameOver.SetActive(false);
         scoreboard.SetActive(false);
+        scorego.SetActive(true);
 
         Time.timeScale = 1f;
         player.enabled = true;
@@ -81,8 +89,20 @@ public class GameManager : MonoBehaviour
         gameOver.SetActive(true);
         playButton.SetActive(true);
         scoreboard.SetActive(true);
+        scoreTextFinish.text = score.ToString();
+        scorego.SetActive(false);
+
 
         Pause();
+
+        if (score > highscore)
+        {
+            highscore = score;
+            PlayerPrefs.SetInt("highscore", highscore);  // Set int está setando o valor da variavel highscore dentro da "highscore" 
+            PlayerPrefs.Save(); // Save salva o highscore
+            highscoreText.text = "" + PlayerPrefs.GetInt("highscore"); // Get int está pegando o highscore do "highscore" salvo
+        }
+;       
     }
 
     public void IncreaseScore()
