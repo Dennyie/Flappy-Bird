@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Text ScoreText;
     public GameObject playButton;
     public GameObject gameOver;
+    public GameObject scoreboard;
     public Jump player;
     private Transform gameObjectToMove;
     private Rigidbody2D sleep;
@@ -29,6 +30,12 @@ public class GameManager : MonoBehaviour
 
 #endif
 
+    public void Start()
+    {
+        gameOver.SetActive(false);
+        scoreboard.SetActive(false);
+    }
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -42,6 +49,7 @@ public class GameManager : MonoBehaviour
 
         playButton.SetActive(false);
         gameOver.SetActive(false);
+        scoreboard.SetActive(false);
 
         Time.timeScale = 1f;
         player.enabled = true;
@@ -72,6 +80,7 @@ public class GameManager : MonoBehaviour
     {
         gameOver.SetActive(true);
         playButton.SetActive(true);
+        scoreboard.SetActive(true);
 
         Pause();
     }
