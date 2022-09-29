@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        //PlayerPrefs.SetInt("highscore", 0);R
+        PlayerPrefs.SetInt("highscore", 0);
         gameOver.SetActive(false);
         scoreboard.SetActive(false);
         highscoreText.text = "" + PlayerPrefs.GetInt("highscore"); // O texto não aparecer 0
