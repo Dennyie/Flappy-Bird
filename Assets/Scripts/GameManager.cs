@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
 
 
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR    // A utilização do unity_editor é para que não haja problemas em build
 
-    void OnValidate()
+    void OnValidate()   // Onvalidate só roda em editor
     {
         gameObjectToMove = Flappy.GetComponent<Transform>();
         sleep = Flappy.GetComponent<Rigidbody2D>();
@@ -36,47 +36,46 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        //PlayerPrefs.SetInt("highscore", 0);
-        gameOver.SetActive(false);
-        scoreboard.SetActive(false);
-        highscoreText.text = "" + PlayerPrefs.GetInt("highscore"); // O texto não aparecer 0
-        highscore = PlayerPrefs.GetInt("highscore"); // declarando o highscore pra ela não começar como 0
+        //PlayerPrefs.SetInt("highscore", 0);   // Comando para resetar o highscore do jogador, usado antes de buildar para o meu score não ir para build
+        gameOver.SetActive(false);  // Desativa a visualização do GAMEOVER no start 
+        scoreboard.SetActive(false);    // Desativa a visualização do scoreboard no start
+        highscoreText.text = "" + PlayerPrefs.GetInt("highscore"); // Para que o highscore não comece sem valor, as aspas vazias é para que ele entenda que é um txt
     }
 
-    private void Awake()
+    private void Awake()    // Para ser executado antes do Start acontecer
     {
-        Application.targetFrameRate = 60;
-        Pause();
+        Application.targetFrameRate = 60;   // Para limitar o FPS a 60
+        Pause();    // Executa a função pause
     }
 
-    public void Play()
+    public void Play()  // Função linkada ao botão para dar play no jogo
     {
-        score = 0;
-        ScoreText.text = score.ToString();
+        score = 0;  // Para sempre que dermos play o score começar em 0 
+        ScoreText.text = score.ToString();  // Transforma variavel int em string para poder entrar como texto
 
-        playButton.SetActive(false);
-        gameOver.SetActive(false);
-        scoreboard.SetActive(false);
-        scorego.SetActive(true);
+        playButton.SetActive(false);    // Desativa a visualização do botão de PLAY após o play
+        gameOver.SetActive(false);      // Desativa a visualização do GAMEOVER após o play
+        scoreboard.SetActive(false);    // Desativa a visualização do SCOREBOARD após o play
+        scorego.SetActive(true);        // Ativa a visualização do SCORE após o play
 
-        Time.timeScale = 1f;
-        player.enabled = true;
+        Time.timeScale = 1f;    // Definindo a velocidade do jogo igual a velocidade de tempo real.
+        player.enabled = true;  // Ativa o "flappy" após o play 
 
-        PipeVelocity[] pipes = FindObjectsOfType<PipeVelocity>();
+        PipeVelocity[] pipes = FindObjectsOfType<PipeVelocity>();   
 
-        for (int i = 0; i < pipes.Length; i++)
+        for (int i = 0; i < pipes.Length; i++)  // Para destruir todos os canos quando o jogador apertar play, para não existir nenhum cano de uma "partida" que já acabou
         {
             Destroy(pipes[i].gameObject);
         }
 
-        Flappy.transform.position = new Vector3(0, 0, 0);
-        Flappy.transform.rotation = new Quaternion(0, 0, 0, 0);
-        sleep.bodyType = RigidbodyType2D.Kinematic;
-        sleep.Sleep();
+        Flappy.transform.position = new Vector3(0, 0, 0);       // Para setar a posição do flappy em 0, 0, 0 toda vez que o jogador apertar play
+        Flappy.transform.rotation = new Quaternion(0, 0, 0, 0); // Para setar a rotação do flappy em 0, 0, 0 toda vez que o jogador apertar play
+        sleep.bodyType = RigidbodyType2D.Kinematic;             // Deixando o flappy em modo Kinematic, queria que toda vez que o jogador iniciasse o jogo o flappy começasse parado e não que começasse a cair imediatamente
+        sleep.Sleep();                                          // Ativa a função Sleep quando o jogador apertar play
         
     }
 
-    public void Pause()
+    public void Pause() 
     {
         Time.timeScale = 0f;
         player.enabled = false;

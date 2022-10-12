@@ -10,11 +10,6 @@ public class BackgroundRepeat : MonoBehaviour
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private Rigidbody2D rb;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 #if UNITY_EDITOR
 
     void OnValidate()
@@ -33,7 +28,6 @@ public class BackgroundRepeat : MonoBehaviour
         rb.velocity = new Vector2(speed, 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.x < -width)
