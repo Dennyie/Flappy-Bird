@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     private int score;
     private int highscore;
     public GameObject scorego;
@@ -16,8 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject playButton;
     public GameObject gameOver;
     public GameObject scoreboard;
-    public Jump player;
-    [SerializeField] private Transform gameObjectToMove;
+    public Player player;
     [SerializeField] private Rigidbody2D sleep;
     [SerializeField] private GameObject Flappy;
 
@@ -27,12 +27,17 @@ public class GameManager : MonoBehaviour
 
     void OnValidate()   // Onvalidate só roda em editor
     {
-        gameObjectToMove = Flappy.GetComponent<Transform>();
         sleep = Flappy.GetComponent<Rigidbody2D>();
     }
 
 
 #endif
+
+    private void Awake()    // Para ser executado antes do Start acontecer
+    {
+        Application.targetFrameRate = 60;   // Para limitar o FPS a 60
+        instance = this;
+    }
 
     public void Start()
     {
@@ -40,11 +45,7 @@ public class GameManager : MonoBehaviour
         gameOver.SetActive(false);  // Desativa a visualização do GAMEOVER no start 
         scoreboard.SetActive(false);    // Desativa a visualização do scoreboard no start
         highscoreText.text = "" + PlayerPrefs.GetInt("highscore"); // Para que o highscore não comece sem valor, as aspas vazias é para que ele entenda que é um txt
-    }
 
-    private void Awake()    // Para ser executado antes do Start acontecer
-    {
-        Application.targetFrameRate = 60;   // Para limitar o FPS a 60
         Pause();    // Executa a função pause
     }
 
