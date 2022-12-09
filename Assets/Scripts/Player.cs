@@ -24,9 +24,9 @@ public class Player : MonoBehaviour
 
 #endif
 
-    private void Start()
+    private void Awake()
     {
-        GameManager.instance.myDelegate = OnGameStart;
+        GameManager.instance.myDelegate += OnGameStart;
     }
 
     private void OnGameStart()
@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
         rigidbody2d.bodyType = RigidbodyType2D.Kinematic;             // Deixando o flappy em modo Kinematic, queria que toda vez que o jogador iniciasse o jogo o flappy começasse parado e não que começasse a cair imediatamente
         rigidbody2d.Sleep();
     }
+
 
     void Update() // Update é chamado 1 vez por frame 
     {

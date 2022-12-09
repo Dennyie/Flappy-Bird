@@ -63,7 +63,8 @@ public class GameManager : MonoBehaviour
         scorego.SetActive(true);        // Ativa a visualização do SCORE após o play
 
         Time.timeScale = 1f;    // Definindo a velocidade do jogo igual a velocidade de tempo real.
-        player.enabled = true;  // Ativa o "flappy" após o play 
+
+        myDelegate?.Invoke();
 
         PipeVelocity[] pipes = FindObjectsOfType<PipeVelocity>();   
 
@@ -71,11 +72,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(pipes[i].gameObject);
         }
-
-        Flappy.transform.position = new Vector3(0, 0, 0);       // Para setar a posição do flappy em 0, 0, 0 toda vez que o jogador apertar play
-        Flappy.transform.rotation = new Quaternion(0, 0, 0, 0); // Para setar a rotação do flappy em 0, 0, 0 toda vez que o jogador apertar play
-        sleep.bodyType = RigidbodyType2D.Kinematic;             // Deixando o flappy em modo Kinematic, queria que toda vez que o jogador iniciasse o jogo o flappy começasse parado e não que começasse a cair imediatamente
-        sleep.Sleep();                                          // Ativa a função Sleep quando o jogador apertar play
         
     }
 
