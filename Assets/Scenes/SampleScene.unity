@@ -158,7 +158,6 @@ MonoBehaviour:
   gameOver: {fileID: 934371842}
   scoreboard: {fileID: 626227968}
   player: {fileID: 1974705697}
-  gameObjectToMove: {fileID: 1974705695}
   sleep: {fileID: 1974705696}
   Flappy: {fileID: 1974705693}
 --- !u!4 &73842290
@@ -1605,13 +1604,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d5d300ef70d4e4da94d5bef19bb744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Flappy: {fileID: 1974705693}
-  jump: 5.5
+  jumpforce: 5
   timeup: 0.1
   flappydown: {fileID: 2018622879}
   timecount: 7
   rigidbody2d: {fileID: 1974705696}
-  localTrans: {fileID: 1974705695}
 --- !u!61 &1974705698
 BoxCollider2D:
   m_ObjectHideFlags: 0

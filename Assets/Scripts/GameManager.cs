@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
 
 #endif
 
+    public delegate void MyDelegate();
+    public MyDelegate myDelegate;
+
     private void Awake()    // Para ser executado antes do Start acontecer
     {
         Application.targetFrameRate = 60;   // Para limitar o FPS a 60

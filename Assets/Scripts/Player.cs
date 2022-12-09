@@ -24,6 +24,11 @@ public class Player : MonoBehaviour
 
 #endif
 
+    private void Start()
+    {
+        GameManager.instance.myDelegate = OnGameStart;
+    }
+
     private void OnGameStart()
     {
         this.enabled = true;  // Ativa o "flappy" após o play 
