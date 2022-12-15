@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     [SerializeField] private Rigidbody2D sleep;
     [SerializeField] private GameObject Flappy;
-
+    public bool isPlaying = false;
 
 
 #if UNITY_EDITOR    // A utilização do unity_editor é para que não haja problemas em build
@@ -50,10 +50,12 @@ public class GameManager : MonoBehaviour
         highscoreText.text = "" + PlayerPrefs.GetInt("highscore"); // Para que o highscore não comece sem valor, as aspas vazias é para que ele entenda que é um txt
 
         Pause();    // Executa a função pause
+
     }
 
     public void Play()  // Função linkada ao botão para dar play no jogo
     {
+        isPlaying = true;
         score = 0;  // Para sempre que dermos play o score começar em 0 
         ScoreText.text = score.ToString();  // Transforma variavel int em string para poder entrar como texto
 
@@ -66,16 +68,16 @@ public class GameManager : MonoBehaviour
 
         myDelegate?.Invoke();
 
-        PipeVelocity[] pipes = FindObjectsOfType<PipeVelocity>();   
+        PipeVelocity[] pipes = FindObjectsOfType<PipeVelocity>();
 
         for (int i = 0; i < pipes.Length; i++)  // Para destruir todos os canos quando o jogador apertar play, para não existir nenhum cano de uma "partida" que já acabou
         {
             Destroy(pipes[i].gameObject);
         }
-        
+
     }
 
-    public void Pause() 
+    public void Pause()
     {
         Time.timeScale = 0f;
         player.enabled = false;
@@ -101,7 +103,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.Save(); // Save salva o highscore
             highscoreText.text = "" + PlayerPrefs.GetInt("highscore"); // Get int está pegando o highscore do "highscore" salvo
         }
-;       
+;
     }
 
     public void IncreaseScore()
@@ -110,5 +112,5 @@ public class GameManager : MonoBehaviour
         ScoreText.text = score.ToString();
     }
 
-   
 }
+
