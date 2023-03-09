@@ -10,7 +10,7 @@ public class PipeSpawner : MonoBehaviour
     [SerializeField]    private float minHeight = -1f;
     [SerializeField]    private float maxHeight = 1f;
 
-    void Update() // Função chamada quando objeto é ativado
+    void Start() // Função chamada quando objeto é ativado
     {
         InvokeRepeating(nameof(Spawn), spawnRate, spawnRate); // invoca repetidamente em uma certa quantidade de tempo
     }

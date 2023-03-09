@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float timeup;
     [SerializeField] private Transform flappydown;
     [SerializeField] private float timecount;
+    [SerializeField] private GameObject spawner;
 
     [SerializeField] private Rigidbody2D rigidbody2d;
     private float maxRotation = 25f;
@@ -33,6 +34,8 @@ public class Player : MonoBehaviour
     {
         this.enabled = true;  // Ativa o "flappy" após o play 
 
+        spawner.SetActive(false);
+
         transform.position = new Vector3(0, 0, 0);       // Para setar a posição do flappy em 0, 0, 0 toda vez que o jogador apertar play
         transform.rotation = new Quaternion(0, 0, 0, 0); // Para setar a rotação do flappy em 0, 0, 0 toda vez que o jogador apertar play
         rigidbody2d.bodyType = RigidbodyType2D.Kinematic;             // Deixando o flappy em modo Kinematic, queria que toda vez que o jogador iniciasse o jogo o flappy começasse parado e não que começasse a cair imediatamente
@@ -46,6 +49,7 @@ public class Player : MonoBehaviour
         //  Debug.Log("velocity " + rigidbody2d.velocity.y);    // Debug log para ver a velocidade que o flappy está caindo
         if (IsPressingJump())
         {
+            spawner.SetActive(true);
             rigidbody2d.bodyType = RigidbodyType2D.Dynamic; //  Apertar espaço faz com que o flappy deixe de ser Kinematic e volte a ser Dynamic, sendo afetado pela gravidade e voltando a poder cair normalmente 
             Jumpflappy();        // Chama a função Jumpflappy
             RotateFlappy();     // Chama a função RotateFlappy
