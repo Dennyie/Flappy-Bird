@@ -158,9 +158,9 @@ MonoBehaviour:
   gameOver: {fileID: 934371842}
   scoreboard: {fileID: 626227968}
   player: {fileID: 1974705697}
-  sleep: {fileID: 1974705696}
   Flappy: {fileID: 1974705693}
   isPlaying: 0
+  Spawner: {fileID: 218337307}
 --- !u!4 &73842290
 Transform:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &218337308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +240,7 @@ MonoBehaviour:
   spawnRate: 1.5
   minHeight: -1
   maxHeight: 1
+  control: 0
 --- !u!4 &218337309
 Transform:
   m_ObjectHideFlags: 0
@@ -622,7 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1609,7 +1610,6 @@ MonoBehaviour:
   timeup: 0.1
   flappydown: {fileID: 2018622879}
   timecount: 7
-  spawner: {fileID: 218337307}
   rigidbody2d: {fileID: 1974705696}
 --- !u!61 &1974705698
 BoxCollider2D:

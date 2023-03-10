@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor.U2D.Path.GUIFramework;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -18,23 +19,24 @@ public class GameManager : MonoBehaviour
     public GameObject gameOver;
     public GameObject scoreboard;
     public Player player;
-    [SerializeField] private Rigidbody2D sleep;
     [SerializeField] private GameObject Flappy;
     public bool isPlaying = false;
+    [SerializeField] private GameObject Spawner;
+    private PipeSpawner spawnerscript;
 
 
 #if UNITY_EDITOR    // A utilização do unity_editor é para que não haja problemas em build
 
     void OnValidate()   // Onvalidate só roda em editor
     {
-        sleep = Flappy.GetComponent<Rigidbody2D>();
+        spawnerscript = Spawner.GetComponent<PipeSpawner>();
     }
 
 
 #endif
 
     public delegate void MyDelegate();
-    public MyDelegate myDelegate;
+    public MyDelegate playgame;
 
     private void Awake()    // Para ser executado antes do Start acontecer
     {
@@ -55,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     public void Play()  // Função linkada ao botão para dar play no jogo
     {
+        spawnerscript.stopInvoke();
+        spawnerscript.control = false;
         isPlaying = true;
         score = 0;  // Para sempre que dermos play o score começar em 0 
         ScoreText.text = score.ToString();  // Transforma variavel int em string para poder entrar como texto
@@ -66,7 +70,7 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1f;    // Definindo a velocidade do jogo igual a velocidade de tempo real.
 
-        myDelegate?.Invoke();
+        playgame?.Invoke();
 
         PipeVelocity[] pipes = FindObjectsOfType<PipeVelocity>();
 
@@ -111,6 +115,4 @@ public class GameManager : MonoBehaviour
         score++;
         ScoreText.text = score.ToString();
     }
-
 }
-
