@@ -4,8 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine.UIElements;
-using UnityEditor.U2D.Path.GUIFramework;
 
+#if Unity_editor
+using UnityEditor.U2D.Path.GUIFramework;
+#endif
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -26,7 +28,6 @@ public class GameManager : MonoBehaviour
 
 
 #if UNITY_EDITOR    // A utilização do unity_editor é para que não haja problemas em build
-
     void OnValidate()   // Onvalidate só roda em editor
     {
         spawnerscript = Spawner.GetComponent<PipeSpawner>();
