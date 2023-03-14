@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using UnityEditor.U2D.Path.GUIFramework;
-using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
+using UnityEditor.U2D.Path.GUIFramework;
 
 public class GameManager : MonoBehaviour
 {
