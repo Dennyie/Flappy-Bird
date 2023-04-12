@@ -5,11 +5,6 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine.UIElements;
 
-#if Unity_editor
-
-using UnityEditor.U2D.Path.GUIFramework;
-
-#endif
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
