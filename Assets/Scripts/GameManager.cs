@@ -43,8 +43,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()    // Para ser executado antes do Start acontecer
     {
-        Application.targetFrameRate = 60;   // Para limitar o FPS a 60
-        instance = this;
+        Application.targetFrameRate = 60; // Para limitar o FPS a 60
+        if (instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+        
     }
 
     public void Start()
