@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1831003607641257284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1831003607641257286}
+  - component: {fileID: 1831003607641257285}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1831003607641257286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831003607641257284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1831003607641257285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831003607641257284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a86498090c1d0974693f762bdf176de5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scorego: {fileID: 5514330104480284301, guid: 3c1326a8a44714846a086441e1b18f10, type: 3}
+  scoreTextFinish: {fileID: 6127980741702246292, guid: 419e3fc2b8a326f4bbb098537447a728,
+    type: 3}
+  highscoreText: {fileID: 7321245183332966210, guid: 3ab5beafae9f2434f9e16a09e3272245,
+    type: 3}
+  ScoreText: {fileID: 5514330104480284303, guid: 3c1326a8a44714846a086441e1b18f10,
+    type: 3}
+  playButton: {fileID: 7224094200263667818, guid: e9ab771a5c399024c9184dcd4fc5109b,
+    type: 3}
+  gameOver: {fileID: 60859414689332392, guid: 7298271d7747ff34c9ca7910c4b79ad0, type: 3}
+  scoreboard: {fileID: 2887935658897432974, guid: 75b5b1d87c78fe2438851712f2c3967e,
+    type: 3}
+  player: {fileID: 844098111308528144, guid: a754878853bdfe649abbff08450834b6, type: 3}
+  Flappy: {fileID: 844098111308528172, guid: a754878853bdfe649abbff08450834b6, type: 3}
+  isPlaying: 0
+  Spawner: {fileID: 9057361163686275894, guid: e5efd412bd8621e4787ab877292f2e2c, type: 3}
+  spawnerscript: {fileID: 9057361163686275889, guid: e5efd412bd8621e4787ab877292f2e2c,
+    type: 3}
